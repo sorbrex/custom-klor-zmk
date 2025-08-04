@@ -15,6 +15,7 @@
 include:
   - board: nice_nano_v2
     shield: klor_left
+    cmake-args: -DCONFIG_ZMK_USB=y
   - board: nice_nano_v2
     shield: klor_right
 # - board: nice_nano_v2
