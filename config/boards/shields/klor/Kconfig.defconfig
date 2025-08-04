@@ -72,5 +72,16 @@ config BT_MAX_CONN
 # Set this to the same number as BT_MAX_CONN
 config BT_MAX_PAIRED
     default 6
+if ZMK_STUDIO
 
+config USB_DEVICE_STACK
+    default y
+
+config USB_DEVICE_HID
+    default y
+    
+config ZMK_STUDIO_LOCKING
+    default n
+
+endif
 endif
