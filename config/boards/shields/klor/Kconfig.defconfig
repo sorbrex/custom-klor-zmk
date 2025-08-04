@@ -1,32 +1,18 @@
-if SHIELD_KLOR_LEFT
-
-    config ZMK_KEYBOARD_NAME
-        default "KLOR"
-
-    config ZMK_SPLIT_BLE_ROLE_CENTRAL
-        default y
-
-endif # LEFT
-
-
-
 if SHIELD_KLOR_LEFT || SHIELD_KLOR_RIGHT
 
-    config ZMK_SPLIT
-        default y
+  config ZMK_SPLIT
+    default y
 
 
-if ZMK_DISPLAY
+  if ZMK_DISPLAY
 
-    config I2C
-        default y
+      config I2C
+          default y
 
-    config SSD1306
-        default y
-
-endif # ZMK_DISPLAY
-
-
+      config SSD1306
+          default y
+  
+  endif # ZMK_DISPLAY
 
 if LVGL
 
@@ -44,13 +30,10 @@ if LVGL
     endchoice
 
 endif # LVGL
-
-
 endif # LEFT RIGHT
 
 if SHIELD_KLOR_DONGLE
 
-# Max 16 characters in keyboard name
 config ZMK_KEYBOARD_NAME
     default "Kloribus"
 
@@ -60,16 +43,12 @@ config ZMK_SPLIT_ROLE_CENTRAL
 config ZMK_SPLIT
     default y
 
-# Set this to the number of peripherals your dongle will have.
-# For a unibody, this would be 1. If you have left and right halves, set it to 2, etc.
 config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
     default 2
 
-# Set this to ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS + your desired number of BT profiles (default is 5)
 config BT_MAX_CONN
     default 6
 
-# Set this to the same number as BT_MAX_CONN
 config BT_MAX_PAIRED
     default 6
 
@@ -88,5 +67,5 @@ config USB_DEVICE_HID
 config ZMK_STUDIO_LOCKING
     default n
 
-endif
-endif
+endif # ZMK_STUDIO
+endif # SHIELD_KLOR_DONGLE
