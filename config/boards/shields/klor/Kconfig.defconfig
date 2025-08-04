@@ -72,6 +72,11 @@ config BT_MAX_CONN
 # Set this to the same number as BT_MAX_CONN
 config BT_MAX_PAIRED
     default 6
+
+# Disable display for dongle
+config ZMK_DISPLAY
+    default n
+
 if ZMK_STUDIO
 
 config USB_DEVICE_STACK
@@ -79,7 +84,7 @@ config USB_DEVICE_STACK
 
 config USB_DEVICE_HID
     default y
-    
+
 config ZMK_STUDIO_LOCKING
     default n
 
