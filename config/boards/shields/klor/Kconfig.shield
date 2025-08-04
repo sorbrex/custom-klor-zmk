@@ -3,3 +3,6 @@ config SHIELD_KLOR_LEFT
 
 config SHIELD_KLOR_RIGHT
     def_bool $(shields_list_contains,klor_right)
+
+config SHIELD_KLOR_DONGLE
+    def_bool $(shields_list_contains,klor_dongle)
