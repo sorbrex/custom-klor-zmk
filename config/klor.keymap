@@ -1,0 +1,76 @@
+
+//                               █         █    █            ▄▄▄▀▀▀▀▀▀▄▄▄        █▀▀▀▀▀▀▀▀▀▀█
+//                               █        █     █          ▄▀            ▀▄      █          █
+//                               █       █      █        ▄▀                ▀▄    █          █
+//                               █      █       █        █                  █    █          █
+//                               █     █        █       █                    █   █          █
+//                               █    █         █       █                    █   █▄▄▄▄▄▄▄▄▄▄█
+//                               █   █ █        █       █                    █   █      █
+//                               █  █   █       █        █                  █    █       █
+//                               █ █     █      █        ▀▄                ▄▀    █        █
+//                               ██       █     █          ▀▄            ▄▀      █         █
+//                               █         █    █▄▄▄▄▄▄▄▄    ▀▀▀▄▄▄▄▄▄▀▀▀        █          █
+//
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+       
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/ext_power.h>
+
+#define ALPHA  0
+#define SYMBOL 1
+#define FUNC   2
+#define ADJUST 3
+
+
+/ {
+    keymap {
+      compatible = "zmk,keymap";
+      base_layer {
+        label= "ALPHA";
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        bindings = <
+                  &kp Q     &kp W     &kp E     &kp R     &kp T                          &kp Y     &kp U     &kp I     &kp O     &kp P
+          &trans  &kp A     &kp S     &kp D     &kp F     &kp G                          &kp H     &kp J     &kp K     &kp L     &kp COMMA &trans
+          &trans  &kp Z     &kp X     &kp C     &kp V     &kp B     &trans     &trans    &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &trans
+                                      &kp LCTRL &kp LGUI  &mo SYMBOL&kp LSHFT   &kp TAB  &kp RET  &mo FUNC &kp BSPC
+        >;
+      };
+
+      lower_layer {
+        label= "SYMBOL";
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        bindings = <
+                  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans     
+          &trans  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans &trans  
+          &trans  &trans &trans &trans &trans &trans   &trans   &trans   &trans &trans &trans &trans &trans &trans
+                                &trans &trans &trans &trans       &trans &trans &trans &trans
+        >;
+      };
+
+      raise_layer {
+        label= "FUNC";
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        bindings = <
+                  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans     
+          &trans  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans &trans  
+          &trans  &trans &trans &trans &trans &trans   &trans   &trans   &trans &trans &trans &trans &trans &trans
+                                &trans &trans &trans &trans       &trans &trans &trans &trans
+        >;
+      };
+
+      adjust_layer {
+        label= "ADJUST";
+        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        bindings = <
+                  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans     
+          &trans  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans &trans  
+          &trans  &trans &trans &trans &trans &trans   &trans   &trans   &trans &trans &trans &trans &trans &trans
+                                &trans &trans &trans &trans       &trans &trans &trans &trans
+        >;
+            
+      };
+    };
+};
