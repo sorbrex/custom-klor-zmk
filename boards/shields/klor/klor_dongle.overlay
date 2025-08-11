@@ -40,7 +40,7 @@
     compatible = "zmk,physical-layout";
     display-name = "saegewerk";
     transform = <&default_transform>;
-    kscan = <&kscan0>;
+    kscan = <&mock_kscan>;
 
     keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0  120       0     0     0>

@@ -7,7 +7,13 @@
 
 
 / {
-	kscan0: kscan {
+	chosen {
+		zephyr,display = &oled;
+		zmk,kscan = &kscan0;
+		zmk,matrix_transform = &default_transform;
+	};
+
+  kscan0: kscan {
     label = "KSCAN";
 		compatible = "zmk,kscan-gpio-matrix";
 		diode-direction = "col2row";
@@ -29,12 +35,6 @@
         RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(3,3) RC(3,4) RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,9)
                         RC(3,0) RC(3,1) RC(3,2)                 RC(3,5) RC(3,6) RC(3,7)
 		>;
-	};
-
-	chosen {
-		zephyr,display = &oled;
-		zmk,kscan = &kscan0;
-		zmk,matrix_transform = &default_transform;
 	};
 
   encoder_left: left_encoder {
