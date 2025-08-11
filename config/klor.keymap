@@ -15,9 +15,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#include "zmk-helpers/helper.h"
-#include "zmk-helpers/key-labels/klorkonrad.h"
-
 /*
   ╭────────────────────────────┬────────────────────────────╮ ╭──────────────────────────────┬─────────────────────────────╮
   │      0   1   2   3   4     │      5   6   7   8   9     │ │     LT4 LT3 LT2 LT1 LT0      │     RT0 RT1 RT2 RT3 RT4     │
@@ -34,19 +31,9 @@
 #define ADJUST 3
 
 / {
-
-    behaviors {
-      change_tab: change_tab {
-          compatible = "zmk,behavior-sensor-rotate";
-          #sensor-binding-cells = <0>;
-          bindings = <&kp LC(LS(TAB))>, <&kp LC(TAB)>;
-      };
-    };  
-
     keymap {
         compatible = "zmk,keymap";
-
-        base_layer {
+        alpha_layer {
             label = "ALPHA";
             bindings = <
               &kp Q  &kp W  &kp E      &kp R     &kp T                                      &kp Y  &kp U      &kp I      &kp O    &kp P
@@ -55,39 +42,36 @@
                             &kp LCTRL  &kp LGUI  &mo SYMBOL                                 &kp ENTER  &kp SPACE  &kp BSPC
             >;
             sensor-bindings = < 
-              &change_tab 
               &inc_dec_kp SPACE SPACE 
               &inc_dec_kp SPACE SPACE 
               &inc_dec_kp C_VOL_UP C_VOL_DN
             >;
         };
 
-        lower_layer {
+        symbol_layer {
             label = "SYMBOL";
             bindings = <
-        &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT                           &kp CARET  &kp AMPERSAND  &kp ASTERISK   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-        &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5                          &kp MINUS  &kp EQUAL      &kp COLON      &kp LEFT_BRACE        &kp RIGHT_BRACE       
-        &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans          &trans  &kp UNDER  &kp PLUS       &kp GRAVE      &kp LEFT_BRACKET      &kp RIGHT_BRACKET
-                                    &kp LCTRL     &kp LEFT_GUI  &trans                                &kp ENTER  &kp SPACE      &kp BACKSPACE
+              &kp EXCL      &kp AT        &kp HASH      &kp DOLLAR    &kp PERCENT                           &kp CARET  &kp AMPERSAND  &kp ASTERISK   &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+              &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5                          &kp MINUS  &kp EQUAL      &kp COLON      &kp LEFT_BRACE        &kp RIGHT_BRACE       
+              &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0  &trans          &trans  &kp UNDER  &kp PLUS       &kp GRAVE      &kp LEFT_BRACKET      &kp RIGHT_BRACKET
+                                          &kp LCTRL     &kp LEFT_GUI  &trans                                &kp ENTER  &kp SPACE      &kp BACKSPACE
             >;
             sensor-bindings = < 
-              &change_tab 
               &inc_dec_kp SPACE SPACE 
               &inc_dec_kp SPACE SPACE 
               &inc_dec_kp C_VOL_UP C_VOL_DN
             >;
         };
 
-        raise_layer {
+        func_layer {
             label = "FUNC";
             bindings = <
-        &kp ESC       &kp F1  &kp F2            &kp F11       &trans                             &trans  &kp PAGE_UP    &kp UP_ARROW    &kp HOME   &trans
-&trans  &kp TAB       &trans  &trans            &trans        &trans                             &trans  &kp LEFT       &kp DOWN_ARROW  &kp RIGHT  &trans   &trans
-&trans  &kp LEFT_ALT  &trans  &trans            &trans        &trans  &trans          &trans     &trans  &kp PAGE_DOWN  &trans          &kp END    &kp DEL  &trans
-                              &kp LEFT_CONTROL  &kp LEFT_GUI  &mo 3   &kp LEFT_SHIFT  &kp ENTER  &trans  &kp SPACE      &kp BACKSPACE
+              &kp ESC       &kp F1  &kp F2            &kp F11       &trans                             &trans     &kp PAGE_UP    &kp UP_ARROW    &kp HOME   &trans
+              &kp TAB       &trans  &trans            &trans        &trans                             &trans     &kp LEFT       &kp DOWN_ARROW  &kp RIGHT  &trans 
+              &kp LEFT_ALT  &trans  &trans            &trans        &trans      &trans      &trans     &trans     &kp PAGE_DOWN  &trans          &kp END    &kp DEL 
+                                    &kp LEFT_CONTROL  &kp LEFT_GUI  &mo ADJUST                         &kp ENTER  &kp SPACE      &kp BACKSPACE
             >;
             sensor-bindings = < 
-              &change_tab 
               &inc_dec_kp SPACE SPACE 
               &inc_dec_kp SPACE SPACE 
               &inc_dec_kp C_VOL_UP C_VOL_DN
@@ -97,13 +81,12 @@
         adjust_layer {
             label = "ADJUST";
             bindings = <
-        &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+              &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+              &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  
+              &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  
+                              &trans  &trans  &trans                  &trans  &trans  &trans
             >;
             sensor-bindings = < 
-              &change_tab 
               &inc_dec_kp SPACE SPACE 
               &inc_dec_kp SPACE SPACE 
               &inc_dec_kp C_VOL_UP C_VOL_DN
