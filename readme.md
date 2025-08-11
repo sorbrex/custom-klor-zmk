@@ -4,6 +4,8 @@
 ### Wireless-Dongle w/ ZMK Studio
 This Configuration support Wireless connection between two halves and communication to a *ProMicro NRF52840*
 
+<img src="/docs/images/klor-layouts-single.png">
+
 
 ## HOW TO USE
 

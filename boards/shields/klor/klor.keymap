@@ -16,7 +16,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/outputs.qh>
 #include <dt-bindings/zmk/ext_power.h>
 
 #define ALPHA  0
@@ -24,53 +24,67 @@
 #define FUNC   2
 #define ADJUST 3
 
+//Sample Keymap that will work as 'barebones' and out of the box.
+//Starting point for your own
+
 
 / {
     keymap {
       compatible = "zmk,keymap";
-      base_layer {
+      alpha_layer {
         label= "ALPHA";
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         bindings = <
                   &kp Q     &kp W     &kp E     &kp R     &kp T                          &kp Y     &kp U     &kp I     &kp O     &kp P
-          &trans  &kp A     &kp S     &kp D     &kp F     &kp G                          &kp H     &kp J     &kp K     &kp L     &kp COMMA &trans
-          &trans  &kp Z     &kp X     &kp C     &kp V     &kp B     &trans     &trans    &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH  &trans
-                                      &kp LCTRL &kp LGUI  &mo SYMBOL&kp LSHFT   &kp TAB  &kp RET  &mo FUNC &kp BSPC
+                  &kp A     &kp S     &kp D     &kp F     &kp G                          &kp H     &kp J     &kp K     &kp L     &kp COMMA
+                  &kp Z     &kp X     &kp C     &kp V     &kp B  &kp C_MUTE   &kp C_MUTE &kp N     &kp M     &kp COMMA &kp DOT   &kp FSLH 
+                                      &kp LCTRL &kp LGUI  &mo SYMBOL                     &kp RET  &mo FUNC &kp BSPC
+        >;
+        sensor-bindings = < 
+          &inc_dec_kp C_VOL_UP C_VOL_DN 
+          &inc_dec_kp C_VOL_UP C_VOL_DN
         >;
       };
 
-      lower_layer {
+      symbol_layer {
         label= "SYMBOL";
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         bindings = <
                   &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans     
-          &trans  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans &trans  
-          &trans  &trans &trans &trans &trans &trans   &trans   &trans   &trans &trans &trans &trans &trans &trans
-                                &trans &trans &trans &trans       &trans &trans &trans &trans
+                  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans  
+                  &trans &trans &trans &trans &trans   &trans   &trans   &trans &trans &trans &trans &trans
+                                &trans &trans &trans                     &trans &trans &trans
+        >;
+        sensor-bindings = < 
+          &inc_dec_kp C_VOL_UP C_VOL_DN 
+          &inc_dec_kp C_VOL_UP C_VOL_DN
         >;
       };
 
-      raise_layer {
+      func_layer {
         label= "FUNC";
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         bindings = <
                   &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans     
-          &trans  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans &trans  
-          &trans  &trans &trans &trans &trans &trans   &trans   &trans   &trans &trans &trans &trans &trans &trans
-                                &trans &trans &trans &trans       &trans &trans &trans &trans
+                  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans  
+                  &trans &trans &trans &trans &trans   &trans   &trans   &trans &trans &trans &trans &trans
+                                &trans &trans &trans                     &trans &trans &trans
+        >;
+        sensor-bindings = < 
+          &inc_dec_kp C_VOL_UP C_VOL_DN 
+          &inc_dec_kp C_VOL_UP C_VOL_DN
         >;
       };
 
       adjust_layer {
         label= "ADJUST";
-        sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         bindings = <
                   &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans     
-          &trans  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans &trans  
-          &trans  &trans &trans &trans &trans &trans   &trans   &trans   &trans &trans &trans &trans &trans &trans
-                                &trans &trans &trans &trans       &trans &trans &trans &trans
+                  &trans &trans &trans &trans &trans                     &trans &trans &trans &trans &trans  
+                  &trans &trans &trans &trans &trans   &trans   &trans   &trans &trans &trans &trans &trans
+                                &trans &trans &trans                     &trans &trans &trans
         >;
-            
+        sensor-bindings = < 
+          &inc_dec_kp C_VOL_UP C_VOL_DN 
+          &inc_dec_kp C_VOL_UP C_VOL_DN
+        >;
       };
     };
 };
