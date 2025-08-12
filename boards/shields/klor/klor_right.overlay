@@ -5,7 +5,6 @@
  */
 
 #include "klor.dtsi"
-#include "./klor_tranform.dtsi"
 
 &klor_transform {
 	col-offset = <5>;
