@@ -5,9 +5,10 @@
  */
 
 #include "klor.dtsi"
+#include "klor-tranform.dtsi"
 
-&default_transform {
-	col-offset = <6>;
+&klor_transform {
+	col-offset = <5>;
 };
 
 &kscan0 {
@@ -17,7 +18,7 @@
 		, <&pro_micro 14 GPIO_ACTIVE_HIGH>
 		, <&pro_micro 15 GPIO_ACTIVE_HIGH>
 		, <&pro_micro 18 GPIO_ACTIVE_HIGH>
-		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
+		// , <&pro_micro 19 GPIO_ACTIVE_HIGH>
 		;
 };
 
