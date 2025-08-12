@@ -1,5 +1,5 @@
-#import "klor_transform.dtsi"
-#import "klor_layout.dtsi"
+#include "klor_transform.dtsi"
+#include "klor_layout.dtsi"
 
 / {
     chosen {

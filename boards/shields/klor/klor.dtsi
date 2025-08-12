@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: MIT
  */
  
-#import "klor-transform.dtsi"
-#import "klor-layout.dtsi"
+#include "klor_transform.dtsi"
+#include "klor_layout.dtsi"
 
 / {
 	chosen {
