@@ -3,7 +3,8 @@
  *
  * SPDX-License-Identifier: MIT
  */
- 
+ #include <dt-bindings/zmk/matrix_transform.h>
+
 / {
 	chosen {
 		zephyr,display = &oled;
@@ -36,7 +37,7 @@
 		>;
   };
 
-  &klor_physical_layout {
+  klor_physical_layout: physical_layout {
     compatible = "zmk,physical-layout";
     display-name = "saegewerk";
     kscan = <&kscan0>;
