@@ -1,12 +1,11 @@
-#include <physical_layouts.dtsi>
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
 
 / {
     chosen {
       zephyr,display = &oled;
       zmk,kscan = &mock_kscan;
-      zmk,matrix_transform = &klor_transform;
-      zmk,physical-layout = &klor_physical_layout;
+      zmk,physical-layout = &physical_layout;
     };
 
     mock_kscan: mock_kscan_0 {
@@ -16,7 +15,7 @@
       events = <0>;
     };
 
-    klor_transform: keymap_transform0 {
+    default_transform: keymap_transform_0 {
       compatible = "zmk,matrix-transform";
 		  columns = <12>;
 		  rows = <4>;
@@ -28,11 +27,11 @@
 		  >;
     };
 
-    klor_physical_layout: physical_layout {
-      kscan = <&mock_kscan>;
-      transform = <&klor_transform>;
+    physical_layout: physical_layout {
       compatible = "zmk,physical-layout";
       display-name = "saegewerk";
+      transform = <&default_transform>;
+      kscan = <&mock_kscan>;
       keys  //                     w   h    x    y     rot    rx    ry
           = <&key_physical_attrs 100 100    0  120       0     0     0>
           , <&key_physical_attrs 100 100  100   50       0     0     0>
