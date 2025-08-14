@@ -5,7 +5,7 @@
     chosen {
       zephyr,display = &oled;
       zmk,kscan = &kscan0;
-      zmk,physical-layout = &physical_layout0;
+      zmk,physical-layout = &default_layout;
       zmk,matrix-transform = &matrix_transform0;
     };
 
@@ -28,13 +28,10 @@
 		  >;
     };
 
-    physical_layout0: physical_layout_0 {
+    default_layout: physical_layout_0 {
         compatible = "zmk,physical-layout";
-        display-name = "saegewerk";
-
-        kscan = <&kscan0>;
+        display-name = "Saegewerk";
         transform = <&matrix_transform0>;
-
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0  120       0     0     0>
             , <&key_physical_attrs 100 100  100   50       0     0     0>
