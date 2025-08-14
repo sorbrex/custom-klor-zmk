@@ -6,8 +6,8 @@
 
 #include "klor.dtsi"
 
-&default_transform {
-	col-offset = <5>;
+&matrix_transform0 {
+	col-offset = <6>;
 };
 
 &kscan0 {
@@ -17,10 +17,10 @@
 		, <&pro_micro 14 GPIO_ACTIVE_HIGH>
 		, <&pro_micro 15 GPIO_ACTIVE_HIGH>
 		, <&pro_micro 18 GPIO_ACTIVE_HIGH>
-		// , <&pro_micro 19 GPIO_ACTIVE_HIGH>
+		, <&pro_micro 19 GPIO_ACTIVE_HIGH>
 		;
 };
 
-&encoder_right {
+&right_encoder {
     status = "okay";
 };
