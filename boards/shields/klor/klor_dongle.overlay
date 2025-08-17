@@ -4,19 +4,18 @@
 / {
     chosen {
       zephyr,display = &oled;
-      zmk,kscan = &kscan0;
-      zmk,physical-layout = &default_layout;
-      zmk,matrix-transform = &matrix_transform0;
+      zmk,kscan = &mock_kscan;
+      zmk,physical-layout = &physical_layout;
     };
 
-    kscan0: mock_kscan {
+    mock_kscan: mock_kscan_0 {
       compatible = "zmk,kscan-mock";
       columns = <0>;
       rows = <0>;
       events = <0>;
     };
 
-    matrix_transform0: keymap_transform_0 {
+    default_transform: keymap_transform_0 {
       compatible = "zmk,matrix-transform";
       columns = <10>;
       rows = <4>;
@@ -28,10 +27,11 @@
 		  >;
     };
 
-    default_layout: physical_layout_0 {
+    physical_layout: physical_layout {
         compatible = "zmk,physical-layout";
         display-name = "Saegewerk";
-        transform = <&matrix_transform0>;
+        transform = <&default_transform>;
+        kscan = <&mock_kscan>;
         keys  //                     w   h    x    y     rot    rx    ry
             = <&key_physical_attrs 100 100    0  120       0     0     0>
             , <&key_physical_attrs 100 100  100   50       0     0     0>
