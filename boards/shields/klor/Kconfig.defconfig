@@ -3,6 +3,8 @@ if SHIELD_KLOR_LEFT || SHIELD_KLOR_RIGHT
   config ZMK_SPLIT
     default y
 
+  config ZMK_SPLIT_ROLE_CENTRAL
+      default n
 
   if ZMK_DISPLAY
 

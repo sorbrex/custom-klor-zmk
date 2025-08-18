@@ -1,9 +1,9 @@
 {
   "id": "klor",
-  "name": "klor",
+  "name": "Klorius",
   "layouts": {
-    "saegewerk": {
-      "name": "saegewerk",
+    "Saegewerk": {
+      "name": "Saegewerk",
       "layout": [
         { "row": 0, "col": 1, "x": 0.0, "y": 1.2 },
         { "row": 0, "col": 2, "x": 1.0, "y": 0.5 },
@@ -56,7 +56,7 @@
   },
   "sensors": [
     {
-      "ref": "encoder_left",
+      "ref": "left_encoder",
       "name": "Left Encoder",
       "identifier": "left_encoder",
       "compatible": "alps,ec11",
@@ -64,8 +64,8 @@
     },
 
     {
-      "ref": "encoder_right",
-      "name": "Rigth Encoder",
+      "ref": "right_encoder",
+      "name": "Right Encoder",
       "identifier": "right_encoder",
       "compatible": "alps,ec11",
       "enabled": false
