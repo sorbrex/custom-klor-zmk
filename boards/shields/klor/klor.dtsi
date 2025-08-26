@@ -39,7 +39,7 @@
 	left_encoder: encoder_left {
 		compatible = "alps,ec11";
 		steps = <80>;
-		status = "okay";
+		status = "disabled";
 	  	a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 	  	b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
   };
@@ -47,7 +47,7 @@
 	right_encoder: encoder_right {
 		compatible = "alps,ec11";
 		steps = <80>;
-		status = "okay";
+		status = "disabled";
 		a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
 		b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
   };
@@ -57,23 +57,4 @@
 	  sensors = <&left_encoder &right_encoder>;
 	  triggers-per-rotation = <20>;
   };
-};
-
-
-&pro_micro_i2c {
-	status = "okay";
-
-	oled: ssd1306@3c {
-		label = "DISPLAY";
-		compatible = "solomon,ssd1306fb";
-		reg = <0x3c>;
-		width = <128>;
-		height = <64>;
-		segment-offset = <0>;
-		page-offset = <0>;
-		display-offset = <0>;
-		multiplex-ratio = <63>;
-		prechargep = <0x22>;
-    inversion-on;
-	};
 };

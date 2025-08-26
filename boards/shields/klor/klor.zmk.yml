@@ -9,6 +9,9 @@ features:
   - keys
   - display
   - encoder
+  - split
+  - dongle
 siblings:
   - klor_left
   - klor_right
+  - klor_dongle
