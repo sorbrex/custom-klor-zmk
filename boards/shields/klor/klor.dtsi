@@ -38,23 +38,24 @@
 
 	left_encoder: encoder_left {
 		compatible = "alps,ec11";
-		steps = <80>;
+		label = "LEFT_ENCODER";
+		resolution = <4>;
 		status = "disabled";
-	  	a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-	  	b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+	  a-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+	  b-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
   };
 
 	right_encoder: encoder_right {
 		compatible = "alps,ec11";
-		steps = <80>;
+		label = "RIGHT_ENCODER";
+		resolution = <4>;
 		status = "disabled";
-		a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-		b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+	  a-gpios = <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+	  b-gpios = <&pro_micro 21 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
   };
 
   sensors {
 	  compatible = "zmk,keymap-sensors";
 	  sensors = <&left_encoder &right_encoder>;
-	  triggers-per-rotation = <20>;
   };
 };
